@@ -1,9 +1,14 @@
-public class MathTaks {
+public class MathTask {
+
+    private static final char ADD = '+';
+    private static final char MINUS = '-';
+    private static final char MULTIPLY = '*';
+    private static final char DIVIDE = '/';
     private double a;
     private char operator;
     private double b;
 
-    public MathTaks(double a, char operator, double b) {
+    public MathTask(double a, char operator, double b) {
         this.a = a;
         this.operator = operator;
         this.b = b;
@@ -35,6 +40,16 @@ public class MathTaks {
 
     @Override
     public String toString() {
-        return a + " " + operator + " " + b + " = ";
+        return a + " " + operator + " " + b;
+    }
+
+    public double solveTheEquation() {
+        return switch (operator) {
+            case ADD -> a + b;
+            case MINUS -> a - b;
+            case MULTIPLY -> a * b;
+            case DIVIDE -> a / b;
+            default -> 0;
+        };
     }
 }
